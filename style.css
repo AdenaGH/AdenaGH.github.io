@@ -1,7 +1,6 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
     box-sizing: border-box;
 }
 
@@ -44,16 +43,16 @@
 .slide1 h2 {
     font-family: FruitNinja;
     color: rgb(7, 83, 8);
-    width: 700px; /* Take full width of container */
-    line-height: 1.4; /* Improve readability */
-    font-size: 52px; /* Adjust font size as needed */
+    width: 700px;
+    line-height: 1.4;
+    font-size: 52px;
 }
 .content-container h2 {
     font-family: FruitNinja;
     color: rgb(7, 83, 8);
-    width: 1200px; /* Take full width of container */
-    line-height: 1.4; /* Improve readability */
-    font-size: 52px; /* Adjust font size as needed */
+    width: 1200px;
+    line-height: 1.4;
+    font-size: 52px;
 }
 #line-break {
     width: 1000px;
@@ -68,11 +67,11 @@
     width: 1200px;
     background-color: rgba(255, 215, 185, 0.8);
     border-radius: 10px;
-    text-align: center; /* Center-align the text */
+    text-align: center;
     display: flex;
-    flex-direction: column; /* Use flexbox for centering */
-    align-items: center; /* Vertically center */
-    justify-content: center; /* Horizontally center */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     
 }
 #subtitle {
@@ -83,25 +82,6 @@
 }
 .slide2 {
     position: relative;
-}
-
-.slide4 {
-    background-color: rgb(255, 183, 45);
-}
-.slide5 {
-    background-color: rgb(120, 32, 187);
-}
-.slide6 {
-    background-color: rgb(63, 178, 243);
-}
-.slide7 {
-    background-color: rgb(190, 90, 210);
-}
-.slide8 {
-    background-color: rgb(14, 122, 181);
-}
-.slide9 {
-    background-color: rgb(198, 76, 45);
 }
 
 h2{
@@ -133,9 +113,9 @@ h2{
     height: 700px;
     background-color: rgba(255, 215, 185, 0.95);
     border-radius: 10px;
-    text-align: center; /* Center-align the text */
+    text-align: center;
     display: flex;
-    flex-direction: column; /* Use flexbox for centering */
+    flex-direction: column;
     justify-content: center;
 }
 .content-text {
@@ -165,90 +145,5 @@ h2{
     height: 100%;
     object-fit: cover;
     z-index: 1;
-}
-
-@keyframes slideIn {
-    0% {
-        transform: translateX(-100%) translateY(-50px);
-        opacity: 0;
-    }
-    80% {
-        transform: translateX(10px) translateY(0);
-        opacity: 1;
-    }
-    100% {
-        transform: translateX(0) translateY(0);
-    }
-}
-
-@keyframes slideIn {
-    0% {
-        transform: translateX(-100%) translateY(-50px);
-        opacity: 0;
-    }
-    80% {
-        transform: translateX(10px) translateY(0);
-        opacity: 1;
-    }
-    100% {
-        transform: translateX(0) translateY(0);
-    }
-}
-
-/* Animation keyframes */
-@keyframes slideIn {
-    0% {
-        transform: translateX(-100%) translateY(-50px);
-        opacity: 0;
-    }
-    80% {
-        transform: translateX(10px) translateY(0);
-        opacity: 1;
-    }
-    100% {
-        transform: translateX(0) translateY(0);
-        opacity: 1; /* Ensure opacity remains at 1 */
-    }
-}
-
-/* Animation keyframes */
-@keyframes slideIn {
-    0% {
-        transform: translateX(-100%) translateY(-50px);
-        opacity: 0;
-    }
-    80% {
-        transform: translateX(10px) translateY(0);
-        opacity: 1;
-    }
-    100% {
-        transform: translateX(0) translateY(0);
-        opacity: 1; /* Ensure opacity remains at 1 */
-    }
-}
-
-/* Add animation to slide1 images */
-.slide1 img {
-    width: 200px;
-    height: 200px;
-    position: absolute; /* Use absolute positioning for precise placement */
-    animation: slideIn 1s ease-out forwards; /* Ensure the final state is retained */
-}
-
-/* Stagger animations and positions for each image */
-.slide1 img:nth-child(1) {
-    animation-delay: 0.2s;
-    top: 50px; /* Apple closer to the top */
-    left: 20px;
-}
-.slide1 img:nth-child(2) {
-    animation-delay: 0.4s;
-    top: 290px; /* Broccoli in the middle */
-    left: 100px;
-}
-.slide1 img:nth-child(3) {
-    animation-delay: 0.6s;
-    top: 540px; /* Banana closer to the bottom */
-    left: 180px;
 }
 
