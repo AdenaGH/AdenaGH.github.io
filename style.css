@@ -44,8 +44,14 @@
 .slide1 h2 {
     font-family: FruitNinja;
     color: rgb(7, 83, 8);
-    width: 100%; /* Take full width of container */
-    word-wrap: break-word; /* Allow long words to break */
+    width: 700px; /* Take full width of container */
+    line-height: 1.4; /* Improve readability */
+    font-size: 52px; /* Adjust font size as needed */
+}
+.content-container h2 {
+    font-family: FruitNinja;
+    color: rgb(7, 83, 8);
+    width: 1200px; /* Take full width of container */
     line-height: 1.4; /* Improve readability */
     font-size: 52px; /* Adjust font size as needed */
 }
@@ -70,17 +76,15 @@
     
 }
 #subtitle {
-    font-family:Arial, Helvetica, sans-serif;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     color: rgb(7, 83, 8);
     padding-top: 10px;
     font-size: 24px;
 }
 .slide2 {
-    background-color: rgb(237, 51, 134);
+    position: relative;
 }
-.slide3 {
-    background-color: rgb(92, 204, 115);
-}
+
 .slide4 {
     background-color: rgb(255, 183, 45);
 }
@@ -99,20 +103,69 @@
 .slide9 {
     background-color: rgb(198, 76, 45);
 }
-/* .slide1 img{
-    width: 100px;
-    height: 100px;
-} */
-.slide1 h2{
+
+h2{
     width: 50%;
     color: rgb(7, 83, 8);
+    z-index: 1;
+    align-self: center;
 }
-/* .slide2 {
-    
+.background-img{
+    position: absolute;
+    /* top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit:contain;
+    z-index: 0; */
+    width: 100%;
+    height: 100%;
 }
-.slide3 {
-    
-} */
+
+.content-container {
+    position: relative;
+    z-index: 2;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    padding-left: 5%;
+    padding-right: 5%;
+    width: 1200px;
+    height: 700px;
+    background-color: rgba(255, 215, 185, 0.95);
+    border-radius: 10px;
+    text-align: center; /* Center-align the text */
+    display: flex;
+    flex-direction: column; /* Use flexbox for centering */
+    justify-content: center;
+}
+.content-text {
+    font-family:sans-serif;
+    color: rgb(7, 83, 8);
+    padding-top: 10px;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+.content-container h2 {
+    position: abolute;
+    top: 10px;
+    align-self: center;
+}
+.visualization-container {
+    width: 1000px;
+    height: 550px;
+    border: black 1px solid;
+    align-self: center;
+    padding: 40px;
+}
+.slide9 video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
 
 @keyframes slideIn {
     0% {
