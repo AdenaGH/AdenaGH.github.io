@@ -18,7 +18,7 @@ const dropdown = slide4Container
   .attr("class", "fruit-dropdown")
   .style("position", "absolute")
   .style("top", `${svgHeight / 2 - 20}px`) // Vertically center the dropdown with the fruit image
-  .style("left", `${svgWidth + 20}px`) // Place it to the right of the SVG
+  .style("left", `${svgWidth + 20}px`) // Place it to the right of the SVG : these may be changed
   .style("width", "200px")
   .style("padding", "10px")
   .style("font-size", "14px");
@@ -59,7 +59,7 @@ d3.csv("FP2020.csv").then((data) => {
     // Clear previous visualization
     svg.selectAll("*").remove();
 
-    // Add a darkened full-sized background image (always 500x500)
+    // Add a darkened full-sized background image (always 500x500)??For now
     const backgroundSize = 500;
     svg
       .append("image")
@@ -71,17 +71,17 @@ d3.csv("FP2020.csv").then((data) => {
       .attr("opacity", 0.3); // Darkened background
 
     // Add a scaled-down image of the fruit centered in the middle
-    const fruitSize = yieldScale(+fruitData.Yield); // Scale the fruit size by yield
+    const fruitSize = yieldScale(+fruitData.Yield); // Scale by yield
     svg
       .append("image")
       .attr("href", fruitData.ImageName)
       .attr("width", fruitSize)
       .attr("height", fruitSize)
-      .attr("x", svgWidth / 2 - fruitSize / 2) // Center horizontally
-      .attr("y", svgHeight / 2 - fruitSize / 2); // Center vertically
+      .attr("x", svgWidth / 2 - fruitSize / 2) // Center h
+      .attr("y", svgHeight / 2 - fruitSize / 2); // Center v
   }
 
-  // Set the initial visualization to the first fruit
+  // Set initial/default visualization to the first fruit
   updateVisualization(freshData[0].Fruit);
 
   // Update visualization when a new fruit is selected from the dropdown
