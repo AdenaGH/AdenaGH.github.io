@@ -23,6 +23,15 @@ const dropdown = slide4Container
   .style("padding", "10px")
   .style("font-size", "14px");
 
+  // Text
+const yieldText = slide4Container
+.append("h3")
+.attr("class", "yield-text")
+.style("text-align", "center")
+.style("margin-top", "20px")
+.style("font-size", "18px")
+.text(""); //shes empty by default
+
 // Load data
 d3.csv("FP2020.csv").then((data) => {
   console.log("Raw CSV data loaded:", data);
@@ -79,7 +88,15 @@ d3.csv("FP2020.csv").then((data) => {
       .attr("height", fruitSize)
       .attr("x", svgWidth / 2 - fruitSize / 2) // Center h
       .attr("y", svgHeight / 2 - fruitSize / 2); // Center v
+
+      // Text below image
+    const yieldPercentage = Math.round(+fruitData.Yield * 100); // Convert yield to percentage
+    yieldText.text(
+      `Out of the entire fruit, the average consumers only use ${yieldPercentage}% of the ${fruitData.Fruit}.`
+    );
   }
+
+  
 
   // Set initial/default visualization to the first fruit
   updateVisualization(freshData[0].Fruit);
