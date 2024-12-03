@@ -147,3 +147,18 @@ h2{
     z-index: 1;
 }
 
+.line {
+    transition: stroke-width 0.3s ease;
+}
+
+.tooltip {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 12px;
+    pointer-events: none;
+}
+
+
