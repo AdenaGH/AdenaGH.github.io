@@ -2,14 +2,14 @@
 const slide4Container = d3.select(".slide4 .visualization-container");
 
 // Dimensions: could be changed
-const svgWidth = 800;
-const svgHeight = 400;
+const slide4svgWidth = 800;
+const slide4svgHeight = 400;
 
-//svg
-const svg = slide4Container
+//slide4svg
+const slide4svg = slide4Container
   .append("svg")
-  .attr("width", svgWidth)
-  .attr("height", svgHeight)
+  .attr("width", slide4svgWidth)
+  .attr("height", slide4svgHeight)
   .style("position", "relative");
 
 // Dropdown
@@ -17,8 +17,8 @@ const dropdown = slide4Container
   .append("select")
   .attr("class", "fruit-dropdown")
   .style("position", "absolute")
-  .style("top", `${svgHeight / 2 - 20}px`) // Vertically center the dropdown with the fruit image
-  .style("left", `${svgWidth + 20}px`) // Place it to the right of the SVG : these may be changed
+  .style("top", `${slide4svgHeight / 2 - 20}px`) // Vertically center the dropdown with the fruit image
+  .style("left", `${slide4svgWidth + 20}px`) // Place it to the right of the SVG : these may be changed
   .style("width", "200px")
   .style("padding", "10px")
   .style("font-size", "14px");
@@ -66,28 +66,28 @@ d3.csv("FP2020.csv").then((data) => {
     console.log("Selected Fruit Data:", fruitData);
 
     // Clear previous visualization
-    svg.selectAll("*").remove();
+    slide4svg.selectAll("*").remove();
 
     // Add a darkened full-sized background image (always 500x500)??For now
     const backgroundSize = 500;
-    svg
+    slide4svg
       .append("image")
       .attr("href", fruitData.ImageName)
-      .attr("x", svgWidth / 2 - backgroundSize / 2)
-      .attr("y", svgHeight / 2 - backgroundSize / 2)
+      .attr("x", slide4svgWidth / 2 - backgroundSize / 2)
+      .attr("y", slide4svgHeight / 2 - backgroundSize / 2)
       .attr("width", backgroundSize)
       .attr("height", backgroundSize)
       .attr("opacity", 0.3); // Darkened background
 
     // Add a scaled-down image of the fruit centered in the middle
     const fruitSize = yieldScale(+fruitData.Yield); // Scale by yield
-    svg
+    slide4svg
       .append("image")
       .attr("href", fruitData.ImageName)
       .attr("width", fruitSize)
       .attr("height", fruitSize)
-      .attr("x", svgWidth / 2 - fruitSize / 2) // Center h
-      .attr("y", svgHeight / 2 - fruitSize / 2); // Center v
+      .attr("x", slide4svgWidth / 2 - fruitSize / 2) // Center h
+      .attr("y", slide4svgHeight / 2 - fruitSize / 2); // Center v
 
       // Text below image
     const yieldPercentage = Math.round(+fruitData.Yield * 100); // Convert yield to percentage
