@@ -10,9 +10,9 @@ const tooltip = slide2Container
   .append("div")
   .attr("class", "tooltip")
   .style("position", "absolute")
-  .style("background-color", "yellow") 
-  .style("color", "black") 
-  .style("border", "2px solid red") 
+  .style("background-color", "yellow")
+  .style("color", "black")
+  .style("border", "2px solid red")
   .style("padding", "8px")
   .style("font-size", "16px")
   .style("border-radius", "5px")
@@ -33,25 +33,25 @@ const bagImage = slide2Container
   .on("mouseover", function (event) {
     console.log("Hovering over bag, avgPricePerGood:", avgPricePerGood); // Debugging
 
-    // Ensure avgPricePerGood is not undefined or zero
+    // Ensure avgPricePerGood defined
     if (avgPricePerGood > 0) {
       console.log(`Tooltip content: Average Price per Good: $${avgPricePerGood.toFixed(2)}`);
 
       tooltip
         .style("opacity", 1)
-        .html(`Average Price per Good: $${avgPricePerGood.toFixed(2)}`) 
+        .html(`Average Price per Good: $${avgPricePerGood.toFixed(2)}`)
         .style("left", `${event.pageX + 10}px`)
         .style("top", `${event.pageY + 10}px`);
     } else {
       tooltip
         .style("opacity", 1)
-        .html("No data available") 
+        .html("No data available")
         .style("left", `${event.pageX + 10}px`)
         .style("top", `${event.pageY + 10}px`);
     }
   })
   .on("mousemove", function (event) {
-    // Move tooltip with the cursor
+    // Move tt
     tooltip
       .style("left", `${event.pageX + 10}px`)
       .style("top", `${event.pageY + 10}px`);
@@ -60,12 +60,12 @@ const bagImage = slide2Container
     tooltip.style("opacity", 0);
   });
 
-// Price Bounds Text
+// Price text
 const priceText = slide2Container
   .append("h3")
   .attr("class", "price-text")
   .style("text-align", "center")
-  .style("margin-top", "10px") 
+  .style("margin-top", "10px")
   .style("font-size", "24px")
   .text("");
 
@@ -81,7 +81,7 @@ const yearSlider = slide2Container
   .style("display", "block")
   .style("margin", "10px auto");
 
-// Year Slider Text
+// Year Text
 const yearLabel = slide2Container
   .append("h4")
   .attr("class", "year-label")
@@ -101,7 +101,7 @@ let avgPricePerGood = 0;
  * which is the avg household size in the U.S.
  */
 function calculatePriceRange(data) {
-  avgPricePerGood = d3.mean(data, (d) => +d.RetailPrice) * 2.51; 
+  avgPricePerGood = d3.mean(data, (d) => +d.RetailPrice) * 2.51;
   console.log("Updated avgPricePerGood:", avgPricePerGood); // Debugging
 
   const lowerBound = avgPricePerGood * 5;
@@ -125,7 +125,7 @@ function updateVisualization(year) {
     console.error("Error loading data:", error); // Debugging
   });
 
-  
+
 }
 
 // Init w lowest year
