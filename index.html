@@ -4,6 +4,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Fruits and Veggies in the US</title>
         <link rel="stylesheet" href="style.css">
+        <script src="https://d3js.org/d3.v7.min.js"></script>
     </head>
 
     <body>
@@ -36,11 +37,20 @@
                 <img class="background-img" src="background1.png" />
                 <div class="content-container">
                     <h2>Time to Break It Down</h2>
-                    <h3 class="content-text">Now that we have seen the general price increases for produce based on packaging form, let's dive deeper and see which fruits and vegetables have had the highest increases in price since 2012.</h3>
-                    <div class="visualization-container">
-                        <h3>This slide would be graph 1 because it takes the info from the previous slide and breaks it down into specific fruits/vegetables</h3>
+                    <h3 class="content-text">
+                        Now that we have seen the general price increases for produce based on packaging form, let's dive deeper and see which fruits and vegetables have had the highest increases in price since 2012.
+                    </h3>
+                    <div class="visualization-container" style="display: flex; justify-content: space-between;">
+                        <!-- Left: Bubble Chart -->
+                        <div id="bubble-chart" style="width: 45%; height: 100%;"></div>
+                        
+                        <!-- Right: Line Chart -->
+                        <div style="width: 100%; height: 100%;">
+                            <svg id="line-chart" width="400" height="400"></svg>
+                        </div>
                     </div>
                 </div>
+            </div>
             </div>
             <div class="slides slide4">
                 <img class="background-img" src="background1.png" />
@@ -105,4 +115,5 @@
         </div>
 
     </body>
+    <script src="Slide3.js"></script>
 </html>
