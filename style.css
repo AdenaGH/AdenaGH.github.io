@@ -133,7 +133,6 @@ h2{
 .visualization-container {
     width: 1000px;
     height: 550px;
-    border: black 1px solid;
     align-self: center;
     padding: 40px;
 }

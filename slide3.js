@@ -120,6 +120,7 @@ fetch('selected_fruits_data.json')
             .attr("y", margin.top / 2)
             .attr("text-anchor", "middle")
             .attr("font-size", "16px")
+            .attr("font-family", "sans-serif")
             .attr("font-weight", "bold");
 
         // Line Generator
