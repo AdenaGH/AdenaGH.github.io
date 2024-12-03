@@ -1,5 +1,5 @@
 // Slide 2 only
-const slide2Container = d3.select(".slide2 .visualization-container");
+const slide2Container = d3.select(".slide7 .visualization-container");
 
 // Dimensions for the grocery bag image and visualization
 const bagWidth = 400;
