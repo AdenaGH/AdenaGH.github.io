@@ -1,12 +1,12 @@
-// Slide 2 only
-const slide2Container = d3.select(".slide7 .visualization-container");
+// Slide 7 only
+const slide7Container = d3.select(".slide7 .visualization-container");
 
 // Dimensions for the grocery bag image and visualization
 const bagWidth = 400;
 const bagHeight = 450;
 
-// Tooltip/HoverContainer w aggressive colors
-const tooltip = slide2Container
+// Tooltip/HoverContainer with aggressive colors
+const tooltip = slide7Container
   .append("div")
   .attr("class", "tooltip")
   .style("position", "absolute")
@@ -18,10 +18,10 @@ const tooltip = slide2Container
   .style("border-radius", "5px")
   .style("box-shadow", "0px 2px 4px rgba(0,0,0,0.2)")
   .style("pointer-events", "none")
-  .style("opacity", 0);
+  .style("opacity", 0); // Hide
 
 // Grocery Bag Image
-const bagImage = slide2Container
+const bagImage = slide7Container
   .append("img")
   .attr("src", "grocerybag.png")
   .attr("alt", "Grocery Bag")
@@ -33,7 +33,7 @@ const bagImage = slide2Container
   .on("mouseover", function (event) {
     console.log("Hovering over bag, avgPricePerGood:", avgPricePerGood); // Debugging
 
-    // Ensure avgPricePerGood defined
+    //avgPrice checks
     if (avgPricePerGood > 0) {
       console.log(`Tooltip content: Average Price per Good: $${avgPricePerGood.toFixed(2)}`);
 
@@ -51,7 +51,7 @@ const bagImage = slide2Container
     }
   })
   .on("mousemove", function (event) {
-    // Move tt
+    // Move tooltip with cursor
     tooltip
       .style("left", `${event.pageX + 10}px`)
       .style("top", `${event.pageY + 10}px`);
@@ -60,8 +60,8 @@ const bagImage = slide2Container
     tooltip.style("opacity", 0);
   });
 
-// Price text
-const priceText = slide2Container
+// Price Bounds Text
+const priceText = slide7Container
   .append("h3")
   .attr("class", "price-text")
   .style("text-align", "center")
@@ -70,10 +70,10 @@ const priceText = slide2Container
   .text("");
 
 // Year Slider
-const yearSlider = slide2Container
+const yearSlider = slide7Container
   .append("input")
   .attr("type", "range")
-  .attr("min", 2020)
+  .attr("min", 2016) 
   .attr("max", 2022)
   .attr("step", 2)
   .attr("value", 2020)
@@ -82,7 +82,7 @@ const yearSlider = slide2Container
   .style("margin", "10px auto");
 
 // Year Text
-const yearLabel = slide2Container
+const yearLabel = slide7Container
   .append("h4")
   .attr("class", "year-label")
   .style("text-align", "center")
@@ -90,6 +90,7 @@ const yearLabel = slide2Container
   .style("font-size", "18px")
   .text("Year: 2020");
 
+// Global var for avg good price
 let avgPricePerGood = 0;
 
 /**
@@ -124,14 +125,12 @@ function updateVisualization(year) {
   }).catch((error) => {
     console.error("Error loading data:", error); // Debugging
   });
-
-
 }
 
-// Init w lowest year
+// Initialize Visualization with Default Year
 updateVisualization(2020);
 
-// event listener
+// Add Listener for Slider Changes
 yearSlider.on("input", function () {
   const selectedYear = +d3.select(this).property("value");
   updateVisualization(selectedYear);
