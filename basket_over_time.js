@@ -29,7 +29,7 @@ const bagImage = slide7Container
   .style("height", `${bagHeight}px`)
   .style("display", "block")
   .style("margin", "0 auto")
-  .style("margin-top", "-100px")
+  .style("margin-top", "-40px") //the text was overlapping so i made it lower
   .on("mouseover", function (event) {
     console.log("Hovering over bag, avgPricePerGood:", avgPricePerGood); // Debugging
 
@@ -112,25 +112,42 @@ function calculatePriceRange(data) {
   return `$${lowerBound.toFixed(2)} - $${upperBound.toFixed(2)}`;
 }
 
-// Change Visualization Based on Year and Data
+
 function updateVisualization(year) {
   const fileName = `FP${year}.csv`;
 
-  d3.csv(fileName).then((data) => {
-    console.log("Loaded data:", data); // Debugging
+  // Adjust bag size based on year
+  let bagDimensions;
+  if (year === 2016) {
+    bagDimensions = { width: 300, height: 300 }; 
+  } else if (year === 2020) {
+    bagDimensions = { width: 350, height: 350 }; 
+  } else if (year === 2022) {
+    bagDimensions = { width: 400, height: 400 }; 
+  }
 
-    const priceRange = calculatePriceRange(data);
-    priceText.text(priceRange);
-    yearLabel.text(`Year: ${year}`);
-  }).catch((error) => {
-    console.error("Error loading data:", error); // Debugging
-  });
+  // Update bag image size hopefully
+  bagImage
+    .style("width", `${bagDimensions.width}px`)
+    .style("height", `${bagDimensions.height}px`);
+
+  d3.csv(fileName)
+    .then((data) => {
+      console.log("Loaded data:", data); // Debugging
+
+      const priceRange = calculatePriceRange(data);
+      priceText.text(priceRange);
+      yearLabel.text(`Year: ${year}`);
+    })
+    .catch((error) => {
+      console.error("Error loading data:", error); // Debugging
+    });
 }
 
-// Initialize Visualization with Default Year
-updateVisualization(2020);
+//changing default to 2016 here
+updateVisualization(2016);
 
-// Add Listener for Slider Changes
+// Add slider listener
 yearSlider.on("input", function () {
   const selectedYear = +d3.select(this).property("value");
   updateVisualization(selectedYear);
