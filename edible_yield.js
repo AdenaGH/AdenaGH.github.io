@@ -55,7 +55,7 @@ d3.csv("FP2020.csv").then((data) => {
     .text((d) => d.Fruit);
 
   // Set up a scale for yield size
-  const yieldScale = d3.scaleLinear().domain([0, 1]).range([0, 500]); // Scale yield as a proportion of 500x500
+  const yieldScale = d3.scaleLinear().domain([0, 1]).range([0, 400]); // Scale yield as a proportion of 500x500
 
   // Update based on fruit
   function updateVisualization(selectedFruit) {
@@ -69,7 +69,7 @@ d3.csv("FP2020.csv").then((data) => {
     slide4svg.selectAll("*").remove();
 
     // Add a darkened full-sized background image (always 500x500)??For now
-    const backgroundSize = 500;
+    const backgroundSize = 400;
     slide4svg
       .append("image")
       .attr("href", fruitData.ImageName)
