@@ -121,9 +121,9 @@ h2{
 .content-text {
     font-family:sans-serif;
     color: rgb(7, 83, 8);
-    padding-top: 10px;
+    padding-top: 5px;
     font-size: 18px;
-    margin-bottom: 5px;
+    margin-bottom: 2px;
 }
 .content-container h2 {
     position: abolute;
@@ -134,7 +134,7 @@ h2{
     width: 1000px;
     height: 550px;
     align-self: center;
-    padding: 40px;
+    padding: 20px;
 }
 .slide9 video {
     position: absolute;
