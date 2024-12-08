@@ -16,7 +16,10 @@ const svg = d3
   .append("g")
   .attr("transform", `translate(${margin.left},${margin.top})`);
 
-Promise.all([d3.csv("FP2022.csv"), d3.csv("VP2022.csv")])
+  Promise.all([
+    d3.csv("/pages/aninvalle3/aninvalle3.github.io/FP2022.csv"),
+    d3.csv("/pages/aninvalle3/aninvalle3.github.io/VP2022.csv")
+  ])
 .then(([fruitData, vegData]) => {
 
     fruitData.forEach((d) => (d.type = "fruit"));
