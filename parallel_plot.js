@@ -16,6 +16,31 @@ const svg = d3
   .append("g")
   .attr("transform", `translate(${margin.left},${margin.top})`);
 
+const key = svg.append("g")
+.attr("transform", `translate(${width - 100}, 20)`);
+
+const colorScale = d3.scaleOrdinal()
+    .domain(["fruit", "vegetable"])
+    .range(["orange", "green"]);
+
+const keyItems = key.selectAll(".key-item")
+  .data(colorScale.domain())
+  .enter()
+  .append("g")
+  .attr("class", "key-item")
+  .attr("transform", (d, i) => `translate(0, ${i * 25})`);
+
+keyItems.append("rect")
+  .attr("width", 15)
+  .attr("height", 15)
+  .style("fill", d => colorScale(d));
+
+keyItems.append("text")
+  .attr("x", 20)
+  .attr("y", 12)
+  .text(d => d.charAt(0).toUpperCase() + d.slice(1))
+  .style("font-size", "12px");
+
 Promise.all([d3.csv("FP2022.csv"), d3.csv("VP2022.csv")])
 .then(([fruitData, vegData]) => {
 
@@ -40,11 +65,6 @@ Promise.all([d3.csv("FP2022.csv"), d3.csv("VP2022.csv")])
         .domain(d3.extent(data, (d) => +d.RetailPrice))
         .range([height, 0]),
     };
-
-    const colorScale = d3.scaleOrdinal()
-        .domain(["fruit", "vegetable"])
-        .range(["orange", "green"]);
-    
 
     const x = d3
     .scalePoint()
