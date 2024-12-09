@@ -25,12 +25,12 @@ d3.csv('Fruit-Prices-2022.csv').then(data => {
   svg1.append('g')
     .attr('transform', `translate(0, 400)`)
     .call(d3.axisBottom(xScale).ticks(10))
-    .attr('font-family', 'cursive')
+    .attr('font-family', 'sans-serif')
     .attr('font-size', '14px');
 
     svg1.append('g')
     .call(d3.axisLeft(yScale))
-    .attr('font-family', 'cursive')
+    .attr('font-family', 'sans-serif')
     .attr('font-size', '14px');
 
     const colors = d3.scaleOrdinal()
@@ -58,18 +58,18 @@ d3.csv('Fruit-Prices-2022.csv').then(data => {
     svg1.append('text')
       .attr('x', widthIn / 2 - 220)
       .attr('y', -10)
-      .attr('font-family', 'cursive')
+      .attr('font-family', 'sans-serif')
       .text('Suggested Price Increase due to Inflation vs Actual Increase');
 
     svg1.append('text')
       .attr('x', 240)
       .attr('y', 130)
-      .attr('font-family', 'cursive')
-      .text('Inflation Rate: 7.8%');
+      .attr('font-family', 'sans-serif')
+      .text('<- Price Increase Based on Inflation');
 
     svg1.append('text')
       .attr('x', widthIn / 2 - 170)
       .attr('y', 450)
-      .attr('font-family', 'cursive')
+      .attr('font-family', 'sans-serif')
       .text('Suggested Retail Price Increase in $');
 });
